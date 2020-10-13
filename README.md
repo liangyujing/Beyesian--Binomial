@@ -1,3 +1,4 @@
+```
 rm(list=ls()) # clears workspace
 
 # prior:
@@ -16,8 +17,6 @@ Theta = seq(0.001,0.999,by=0.001)    # points for plotting
 pTheta = dbeta(Theta , a , b )      # prior for plotting
 pThetaGivenData = dbeta( Theta , ap , bp )    # posterior for plotting
 pDataGivenTheta = choose(n, k) * Theta^k * (1-Theta)^(n-k)    # likelihood for plotting
-  
-  
   
 # Plot the results.
 layout( matrix( c( 1,2,3 ) ,nrow=3 ,ncol=1 ,byrow=FALSE ) )     # 3x1 panels
@@ -53,8 +52,6 @@ yLim = c(0,1.1*max(c(pTheta,pThetaGivenData)))
   text( textx ,1.0*max(pDataGivenTheta) ,cex=2.0
         ,bquote( "Data: k=" * .(k) * ",n=" * .(n) ) ,adj=textadj )
   
-  
-  
 # Plot the posterior.
   plot( Theta , pThetaGivenData ,  
         pch="." , cex=dotsize , lwd=barsize ,
@@ -62,8 +59,6 @@ yLim = c(0,1.1*max(c(pTheta,pThetaGivenData)))
         xlab=bquote(theta) , ylab=bquote(dbeta(theta*"|"*.(ap),.(bp))) , 
         cex.lab=cexLab ,
         main="Posterior (beta)" , cex.main=1.5 , col="skyblue" )
-
-
 
 # prior summaries
 priormean = a/(a+b) 
@@ -87,3 +82,4 @@ ci=c(ciL,ciH)          # credible interval.
 1-pbeta(.7,ap,bp) #higher than .7
 pbeta(.6,ap,bp)-pbeta(.4,ap,bp)      #between .4 and .6
 pbeta(.3,ap,bp) #smaller than .3
+```
